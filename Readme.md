@@ -1,9 +1,20 @@
 # Pseudo Dodo Pizza
 
 ## Table of Contents
+- [.env](#.env)
 - [Экраны](#экраны)
 - [Version](#version)
 - [License](#license)
+
+## .env
+
+```
+# ...
+DATABASE_URL=...
+
+# ...
+JWT_SECRET=...
+```
 
 ## Экраны
 
