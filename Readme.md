@@ -1,10 +1,14 @@
 # Pseudo Dodo Pizza
 
 ## Table of Contents
+- [Getting Started](#getting-started)
 - [.env](#.env)
 - [Экраны](#экраны)
 - [Version](#version)
 - [License](#license)
+
+## Getting Started
+
 
 ## .env
 
