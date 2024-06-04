@@ -1,0 +1,62 @@
+<!-- pseudo-dodo-pizza просмотр ассортимента какого-либо предприятия.
+	Copyright (C) 2024 Vladimir Leonidovich
+
+	This program is free software: you can redistribute
+	it and/or modify it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program. If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<header
+	class="grid grid-nogutter xl:px-0 border-bottom-1 border-300 surface-100 justify-content-center"
+>
+	<div class="col-11 lg:col-8 xl:col-5 py-3 mx-auto">
+		<p-menubar [model]="categories">
+			<ng-template pTemplate="end">
+				<p-button
+					hidden
+					label="Корзина"
+					[badge]="true ? undefined : '0'"
+					i18n-label
+					icon="pi pi-shopping-cart"
+					[text]="true"
+					(onClick)="reveal()"
+				/>
+			</ng-template>
+		</p-menubar>
+	</div>
+</header>
+
+<p-dialog [modal]="true" [(visible)]="isCartRevealed">
+	<p>Недоступно в версии 0.1.0.</p>
+</p-dialog>
+
+<main class="grid grid-nogutter justify-content-center py-4 surface-0">
+	<div
+		class="col-11 lg:col-9 xl:col-7 grid grid-nogutter row-gap-2 column-gap-3 xl:column-gap-4"
+	>
+		@for (offer of assortment$ | async; track offer.image) {
+		<app-card class="col-12 sm:col xl:col" [offer]="offer" />
+		<!--[ ](refactor): class should be in card.component.html-->
+		}
+		<!--<router-outlet />-->
+	</div>
+</main>
+
+<footer
+	class="grid grid-nogutter text-primary py-2 sm:py-3 border-top-1 border-300 surface-100 justify-content-center"
+>
+	<div class="col-11 lg:col-8 xl:col-5">
+		<p class="text-xs sm:text-sm text-center sm:text-right">
+			Copyright © 2024 Vladimir Leonidovich. All rights reserved.
+		</p>
+	</div>
+</footer>

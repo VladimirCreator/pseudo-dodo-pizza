@@ -15,9 +15,14 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* [ ](governance): CC-BY */
-
-{
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
+// @ts-expect-error I do not know why the following lines exist.
+globalThis.ngJest = {
+	testEnvironmentOptions: {
+		errorOnUnknownElements: true,
+		errorOnUnknownProperties: true
+	}
 }
+
+// #region -Dependencies
+import 'jest-preset-angular/setup-jest'
+// #endregion

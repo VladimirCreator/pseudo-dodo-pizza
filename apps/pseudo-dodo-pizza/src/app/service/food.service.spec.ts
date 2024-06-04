@@ -15,9 +15,19 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* [ ](governance): CC-BY */
+import { TestBed } from '@angular/core/testing'
 
-{
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
-}
+import { FoodService } from './food.service'
+
+describe('FoodService', () => {
+	let service: FoodService
+
+	beforeEach(() => {
+		TestBed.configureTestingModule({})
+		service = TestBed.inject(FoodService)
+	})
+
+	it('should be created', () => {
+		expect(service).toBeTruthy()
+	})
+})

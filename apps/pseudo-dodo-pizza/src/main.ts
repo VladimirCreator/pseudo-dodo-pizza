@@ -15,9 +15,12 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* [ ](governance): CC-BY */
+// #region -Dependencies
 
-{
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
-}
+import { bootstrapApplication } from '@angular/platform-browser'
+import { configuration } from './app/app.config'
+import { AppComponent } from './app/app.component'
+
+// #endregion
+
+bootstrapApplication(AppComponent, configuration).catch(console.error)

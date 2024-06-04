@@ -15,9 +15,13 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* [ ](governance): CC-BY */
+// #region -Dependencies
 
-{
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
+// MARK: Nx
+const nxPreset = require('@nx/jest/preset')
+
+// #endregion
+
+module.exports = {
+	...nxPreset.default
 }

@@ -16,6 +16,5 @@
 
 # [ ](governance): CC-BY
 
-custom:
-  - https://www.donationalerts.com/r/vladimirleonidovich/
-  - https://boosty.to/vladimircreator/donate/
+*
+!.gitignore

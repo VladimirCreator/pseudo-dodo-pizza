@@ -18,6 +18,11 @@
 /* [ ](governance): CC-BY */
 
 {
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
+	"recommendations": [
+		"EditorConfig.EditorConfig",
+		"Angular.ng-template",
+		"nrwl.angular-console",
+		"esbenp.prettier-vscode",
+		"github.vscode-github-actions"
+	]
 }

@@ -15,9 +15,32 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* [ ](governance): CC-BY */
+// #region -Dependencies
 
-{
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
-}
+import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { CardComponent } from './card.component'
+
+// #endregion
+
+// #region -Test Suite
+
+describe('CardComponent', () => {
+	let component: CardComponent
+	let fixture: ComponentFixture<CardComponent>
+
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			imports: [CardComponent]
+		}).compileComponents()
+
+		fixture = TestBed.createComponent(CardComponent)
+		component = fixture.componentInstance
+		fixture.detectChanges()
+	})
+
+	it('should be instantiable', () => {
+		expect(component).toBeTruthy()
+	})
+})
+
+// #endregion

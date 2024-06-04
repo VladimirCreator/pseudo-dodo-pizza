@@ -15,9 +15,12 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* [ ](governance): CC-BY */
+// #region -Dependencies
 
-{
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
-}
+// MARK: Angular
+import { Route } from '@angular/router'
+
+// #endregion
+
+// MARK: -Configuration
+export const routes: Route[] = []

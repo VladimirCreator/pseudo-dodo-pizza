@@ -15,9 +15,26 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* [ ](governance): CC-BY */
+// #region -Dependencies
 
-{
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
+// MARK: Angular
+import { ApplicationConfig } from '@angular/core'
+import { provideHttpClient, withFetch } from '@angular/common/http'
+import { provideRouter } from '@angular/router'
+import { provideClientHydration } from '@angular/platform-browser'
+import { provideAnimations } from '@angular/platform-browser/animations'
+
+// #endregion
+
+import { routes } from './app.routes'
+
+// MARK: -Configuration
+export const configuration: ApplicationConfig = {
+	providers:
+		/*prettier-ignore*/ [
+		provideHttpClient(withFetch()),
+		provideRouter(routes),
+		provideClientHydration(),
+		provideAnimations()
+	]
 }

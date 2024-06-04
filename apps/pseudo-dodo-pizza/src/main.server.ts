@@ -15,9 +15,14 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* [ ](governance): CC-BY */
+// #region -Dependencies
 
-{
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
-}
+import { bootstrapApplication } from '@angular/platform-browser'
+import { config } from './app/app.config.server'
+import { AppComponent } from './app/app.component'
+
+// #endregion
+
+const bootstrap = () => bootstrapApplication(AppComponent, config)
+
+export default bootstrap

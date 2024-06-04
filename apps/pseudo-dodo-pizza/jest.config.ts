@@ -17,7 +17,25 @@
 
 /* [ ](governance): CC-BY */
 
-{
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
+/* eslint-disable */
+export default {
+	displayName: 'pseudo-dodo-pizza',
+	preset: '../../jest.preset.js',
+	setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
+	coverageDirectory: '../../coverage/apps/pseudo-dodo-pizza',
+	transform: {
+		'^.+\\.(ts|mjs|js|html)$': [
+			'jest-preset-angular',
+			{
+				tsconfig: '<rootDir>/tsconfig.spec.json',
+				stringifyContentPathRegex: '\\.(html|svg)$'
+			}
+		]
+	},
+	transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
+	snapshotSerializers: [
+		'jest-preset-angular/build/serializers/no-ng-attributes',
+		'jest-preset-angular/build/serializers/ng-snapshot',
+		'jest-preset-angular/build/serializers/html-comment'
+	]
 }

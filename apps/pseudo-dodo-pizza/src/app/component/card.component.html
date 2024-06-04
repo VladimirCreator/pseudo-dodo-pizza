@@ -1,0 +1,39 @@
+<!-- pseudo-dodo-pizza просмотр ассортимента какого-либо предприятия.
+	Copyright (C) 2024 Vladimir Leonidovich
+
+	This program is free software: you can redistribute
+	it and/or modify it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program. If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<p-card [header]="offer.name">
+	<ng-template pTemplate="header">
+		<p-image class="w-18 h-18" [alt]="offer.name" [src]="offer.image" />
+	</ng-template>
+	<p [style]="{ maxHeight: '40px', overflow: 'hidden' }">
+		{{ offer.description }}
+	</p>
+
+	<ng-template pTemplate="footer">
+		<div class="flex justify-content-between">
+			<p class="font-bold">{{ offer.price | currency }}</p>
+			<p-button
+				label="В корзину"
+				i18n-label
+				[rounded]="true"
+				(onClick)="notify()"
+			/>
+		</div>
+	</ng-template>
+</p-card>
+
+<p-toast />

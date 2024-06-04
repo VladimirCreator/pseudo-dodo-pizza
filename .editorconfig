@@ -16,6 +16,17 @@
 
 # [ ](governance): CC-BY
 
-custom:
-  - https://www.donationalerts.com/r/vladimirleonidovich/
-  - https://boosty.to/vladimircreator/donate/
+root = true
+
+[*]
+charset = utf-8
+
+indent_style = tab
+indent_size = 2
+
+trim_trailing_whitespace = true
+
+insert_final_newline = true
+
+[*.md]
+max_line_length = off

@@ -18,6 +18,35 @@
 /* [ ](governance): CC-BY */
 
 {
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
+	"extends": "../../tsconfig.base.json",
+	"files": [],
+	"include": [],
+	"compilerOptions": {
+		"target": "es2022",
+		"useDefineForClassFields": false,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"noImplicitOverride": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true
+	},
+	"references": [
+		{
+			"path": "./tsconfig.editor.json"
+		},
+		{
+			"path": "./tsconfig.app.json"
+		},
+		{
+			"path": "./tsconfig.spec.json"
+		}
+	],
+	"angularCompilerOptions": {
+		"enableI18nLegacyMessageIdFormat": false,
+		"strictInjectionParameters": true,
+		"strictInputAccessModifiers": true,
+		"strictTemplates": true
+	}
 }

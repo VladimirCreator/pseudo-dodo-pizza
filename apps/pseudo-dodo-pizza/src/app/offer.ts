@@ -15,9 +15,12 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* [ ](governance): CC-BY */
-
-{
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
+// I created the type at 7:38 PM on June 4th 2024.
+export type Type = {
+	name: string
+	description: string
+	price: number
+	image: string
 }
+
+export type Offer = Readonly<Type>

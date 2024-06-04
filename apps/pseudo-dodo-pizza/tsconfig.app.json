@@ -18,6 +18,12 @@
 /* [ ](governance): CC-BY */
 
 {
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
+	"extends": "./tsconfig.json",
+	"files": ["src/main.ts", "src/main.server.ts", "server.ts"],
+	"include": ["src/**/*.d.ts"],
+	"exclude": ["jest.config.ts", "src/**/*.test.ts", "src/**/*.spec.ts"],
+	"compilerOptions": {
+		"outDir": "../../dist/out-tsc",
+		"types": ["node"]
+	}
 }

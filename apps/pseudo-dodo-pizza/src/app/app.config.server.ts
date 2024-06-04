@@ -15,9 +15,19 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* [ ](governance): CC-BY */
+// #region -Dependencies
 
-{
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
+// MARK: Angular
+import { mergeApplicationConfig, ApplicationConfig } from '@angular/core'
+import { provideServerRendering } from '@angular/platform-server'
+
+// #endregion
+
+import { configuration } from './app.config'
+
+// MARK: -Configuration
+const serverConfig: ApplicationConfig = {
+	providers: [provideServerRendering()]
 }
+
+export const config = mergeApplicationConfig(configuration, serverConfig)

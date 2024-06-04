@@ -17,7 +17,15 @@
 
 /* [ ](governance): CC-BY */
 
-{
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
+// #region -Dependencies
+
+// MARK: Nx
+import { getJestProjectsAsync } from '@nx/jest'
+
+// #endregion
+
+// MARK: -Configuration
+export default async () => {
+	const projects = await getJestProjectsAsync()
+	return { projects } as const
 }

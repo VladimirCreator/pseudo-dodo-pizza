@@ -15,9 +15,24 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* [ ](governance): CC-BY */
+// #region -Dependencies
 
-{
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
-}
+// MARK: Playwright
+import { test, expect } from '@playwright/test'
+
+// #endregion -Dependencies
+
+// MARK: -Test Suite
+
+// MARK: -Test 1
+test('has title', async (object) => {
+	// Arrange
+	const { page } = object
+
+	// Act
+	await page.goto('/')
+
+	// Assert
+	const h1 = page.locator('h1')
+	expect(await h1.innerText()).toContain('Welcome')
+})

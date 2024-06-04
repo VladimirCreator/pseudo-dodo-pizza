@@ -15,9 +15,37 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* [ ](governance): CC-BY */
+// #region -Dependencies
 
-{
-	"image": "mcr.microsoft.com/devcontainers/typescript-node",
-	"features": {}
+// MARK: Angular
+import { Injectable, inject } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
+
+// MARK: RxJS
+import { of } from 'rxjs'
+
+// #endregion
+
+import type { Offer } from '../offer'
+
+@Injectable(/*prettier-ignore*/ {
+  providedIn: "root"
+})
+export class FoodService {
+	// #region Properties
+
+	readonly #http = inject(HttpClient)
+
+	// #endregion
+
+	// #region Getters & Setters
+
+	public get offers$() {
+		return of(
+			(JSON.parse(process.env['ESB_ASSORTMENT']!) ?? []) as Array<Offer>
+		)
+		//return this.#http.get("/offers")
+	}
+
+	// #endregion
 }

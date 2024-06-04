@@ -16,6 +16,7 @@
 
 # [ ](governance): CC-BY
 
-custom:
-  - https://www.donationalerts.com/r/vladimirleonidovich/
-  - https://boosty.to/vladimircreator/donate/
+# MARK: -Essentials
+
+# MARK: The Node Package Manager
+node_modules

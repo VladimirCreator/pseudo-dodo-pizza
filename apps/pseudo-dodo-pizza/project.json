@@ -1,0 +1,109 @@
+/* pseudo-dodo-pizza просмотр ассортимента какого-либо предприятия.
+ * Copyright (C) 2024 Vladimir Leonidovich
+ *
+ * This program is free software: you can redistribute
+ * it and/or modify it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+
+/* [ ](governance): CC-BY */
+
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "pseudo-dodo-pizza",
+	"projectType": "application",
+	"prefix": "app",
+	"sourceRoot": "apps/pseudo-dodo-pizza/src",
+	"tags": [],
+	"targets": {
+		"lint": {
+			"executor": "@nx/eslint:lint"
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"options": {
+				"jestConfig": "apps/pseudo-dodo-pizza/jest.config.ts"
+			},
+			"outputs": ["{workspaceRoot}/coverage/{projectRoot}"]
+		},
+		"build": {
+			"executor": "@nx/angular:application",
+			"options": {
+				"baseHref": "./",
+				"plugins": ["node_modules/esbuild-plugin-env/cjs.cjs"],
+				"outputPath": "_site/",
+				"index": "apps/pseudo-dodo-pizza/src/index.html",
+				"browser": "apps/pseudo-dodo-pizza/src/main.ts",
+				"polyfills": ["zone.js"],
+				"tsConfig": "apps/pseudo-dodo-pizza/tsconfig.app.json",
+				"assets": [
+					"apps/pseudo-dodo-pizza/src/favicon.ico",
+					"apps/pseudo-dodo-pizza/src/assets"
+				],
+				"styles": [
+					"node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+					"node_modules/primeng/resources/primeng.min.css",
+					"node_modules/primeflex/primeflex.css",
+					"apps/pseudo-dodo-pizza/src/styles.scss"
+				],
+				"scripts": [],
+				"server": "apps/pseudo-dodo-pizza/src/main.server.ts",
+				"prerender": true,
+				"ssr": {
+					"entry": "apps/pseudo-dodo-pizza/server.ts"
+				}
+			},
+			"configurations": {
+				"production": {
+					"budgets": [
+						{
+							"type": "initial",
+							"maximumWarning": "500kb",
+							"maximumError": "10mb"
+						},
+						{
+							"type": "anyComponentStyle",
+							"maximumWarning": "2kb",
+							"maximumError": "4kb"
+						}
+					],
+					"outputHashing": "all"
+				},
+				"development": {
+					"optimization": false,
+					"extractLicenses": false,
+					"sourceMap": true
+				}
+			},
+			"defaultConfiguration": "production",
+			"outputs": ["{options.outputPath}"]
+		},
+		"extract-i18n": {
+			"executor": "@nx/angular:extract-i18n",
+			"options": {
+				"buildTarget": "pseudo-dodo-pizza:build"
+			}
+		},
+		"serve": {
+			"executor": "@nx/angular:dev-server",
+			"configurations": {
+				"production": {
+					"buildTarget": "pseudo-dodo-pizza:build:production"
+				},
+				"development": {
+					"buildTarget": "pseudo-dodo-pizza:build:development"
+				}
+			},
+			"defaultConfiguration": "development"
+		}
+	}
+}
